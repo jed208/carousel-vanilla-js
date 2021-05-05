@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   padding: 10px 0;
-  background: pink;
+  /* background: pink; */
 }
 
 .carousel__indicator {
