@@ -3,14 +3,14 @@ const track = document.querySelector('.carousel__track');
 const slides = Array.from(track.children);
 const slideSize = slides[0].getBoundingClientRect();
 const slideWidth = slideSize.width;
-const currentSlide = track.querySelector('.current-slide');
+// const currentSlide = track.querySelector('.current-slide');
 
 const nextButton = document.querySelector('.carousel__button--right');
 const prevButton = document.querySelector('.carousel__button--left');
 
 const dotsNav = document.querySelector('.carousel__nav');
 const dots = Array.from(dotsNav.children);
-const currentDot = dotsNav.querySelector('.current-slide');
+// const currentDot = dotsNav.querySelector('.current-slide');
 
 // arrange the slides next to one another
 // slides[0].style.left = slideWidth * 0;
@@ -48,9 +48,9 @@ const hideShowArrows = (targetIndex, prevButton, nextButton, slides) => {
 
 // when I click left, move slides left
 prevButton.addEventListener('click', e => {
-  // const currentSlide = track.querySelector('.current-slide');
+  const currentSlide = track.querySelector('.current-slide');
   const prevSlide = currentSlide.previousElementSibling;
-  // const currentDot = dotsNav.querySelector('.current-slide');
+  const currentDot = dotsNav.querySelector('.current-slide');
   const prevDot = currentDot.previousElementSibling;
   const prevIndex = slides.findIndex(slide => slide === prevSlide);
   
@@ -61,9 +61,9 @@ prevButton.addEventListener('click', e => {
 
 // when I click right, move slides right
 nextButton.addEventListener('click', e => {
-  // const currentSlide = track.querySelector('.current-slide');
+  const currentSlide = track.querySelector('.current-slide');
   const nextSlide = currentSlide.nextElementSibling;
-  // const currentDot = dotsNav.querySelector('.current-slide');
+  const currentDot = dotsNav.querySelector('.current-slide');
   const nextDot = currentDot.nextElementSibling;
   const nextIndex = slides.findIndex(slide => slide === nextSlide);
   
@@ -79,8 +79,8 @@ dotsNav.addEventListener('click', e => {
 
   if(!targetDot) return;
 
-  // const currentSlide = track.querySelector('.current-slide');
-  // const currentDot = dotsNav.querySelector('.current-slide');
+  const currentSlide = track.querySelector('.current-slide');
+  const currentDot = dotsNav.querySelector('.current-slide');
   const targetIndex = dots.findIndex(dot => dot === targetDot);
   const targetSlide = slides[targetIndex];
 
@@ -89,5 +89,3 @@ dotsNav.addEventListener('click', e => {
   hideShowArrows(targetIndex, prevButton, nextButton, slides);
   
 })
-
-console.log('current dot: ', currentDot)
